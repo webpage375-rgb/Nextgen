@@ -1,3 +1,1 @@
-// timelineStore.js
-
-// This file should manage the state and behaviors for the timeline features.
+import { create } from 'zustand';\n\nexport const useTimelineStore = create((set) => ({\n  clips:[],\n  activeClipId: null,\n  \n  // Add new video to timeline\n  addClip: (clip) => set((state) => ({  \n    clips: [...state.clips, clip]  \n  })),\n  \n  // Remove video from timeline\n  removeClip: (id) => set((state) => ({  \n    clips: state.clips.filter(c => c.id !== id)  \n  })),\n  \n  // Update order after drag and drop\n  reorderClips: (clips) => set({ clips }),\n  \n  // Clear full timeline\n  clearAll: () => set({ clips:[] }),\n  \n  // Set currently playing/selected clip\n  setActiveClipId: (id) => set({ activeClipId: id })\n}));

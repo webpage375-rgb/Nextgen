@@ -1,7 +1,1 @@
-import React from 'react';
-
-const SortableClip = () => {
-    return <div>Sortable Clip</div>;
-};
-
-export default SortableClip;
+import React from 'react';\nimport { useSortable } from '@dnd-kit/sortable';\nimport { CSS } from '@dnd-kit/utilities';\n\nexport default function SortableClip({ clip, onRemove, isActive }) {\n  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: clip.id });\n\n  const style = {\n    transform: CSS.Transform.toString(transform),\n    transition,\n  };\n\n  return (\n    <div \n      ref={setNodeRef} \n      style={style} \n      {...attributes} \n      {...listeners}\n      className={`flex items-center min-w-[120px] h-16 bg-blue-900 border-2 rounded-md cursor-grab active:cursor-grabbing px-2 mx-1 relative overflow-hidden ${isActive ? 'border-yellow-400' : 'border-blue-700 hover:border-blue-500'}`}>\n      <span className="text-xs text-white truncate w-20 z-10 pointer-events-none">\n        {clip.file.name}\n      </span>\n      <button \n        onPointerDown={(e) => { e.stopPropagation(); onRemove(clip.id); }}\n        className="absolute right-1 top-1 text-red-400 hover:text-red-300 z-20 text-xs bg-gray-900 rounded-full w-4 h-4 flex items-center justify-center"\n      >\n        ✕\n      </button>\n    </div>\n  );\n}

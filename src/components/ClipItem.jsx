@@ -1,7 +1,1 @@
-import React from 'react';
-
-const ClipItem = () => {
-    return <div>Clip Item</div>;
-};
-
-export default ClipItem;
+import React from 'react';\n\nexport default function ClipItem({ clip, onAdd }) {\n  const sizeMB = (clip.file.size / (1024 * 1024)).toFixed(2);\n  \n  return (\n    <div className="flex flex-col p-3 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-colors">\n      <div className="flex justify-between items-center mb-2">\n        <span className="text-sm font-medium text-gray-200 truncate w-32" title={clip.file.name}>\n          {clip.file.name}\n        </span>\n        <span className="text-xs text-gray-400">{sizeMB} MB</span>\n      </div>\n      <button \n        onClick={() => onAdd(clip)}\n        className="bg-blue-600 hover:bg-blue-500 text-white text-xs py-1 px-2 rounded w-full transition"\n      >\n        + Add to Timeline\n      </button>\n    </div>\n  );\n}

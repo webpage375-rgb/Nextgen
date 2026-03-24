@@ -1,4 +1,1 @@
-# Project Title
-
-## Milestone 1
-Features include Timeline, drag-drop support, and multi-clip preview.
+## Milestone‑1 — Timeline & Multi‑clip Preview\n\nHow to run locally:\n1. git clone https://github.com/webpage375-rgb/Nextgen\n2. cd Nextgen\n3. npm install\n4. npm run dev\n5. Open http://localhost:5173/editor\n\nMilestone‑1 features:\n- Upload multiple clips and automatically read duration\n- Clip library with name, size, duration\n- Timeline with drag & drop reorder (powered by @dnd-kit)\n- Sequential preview playback (plays clips one after another)\n- FFmpeg placeholder (Load FFmpeg button) for future export work\n
